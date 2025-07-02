@@ -1,0 +1,13 @@
+python>=3.8
+pyrealsense2==2.50.0
+numpy==1.24.3
+opencv-python==4.7.0.68
+opencv-contrib-python==4.7.0.68
+open3d==0.16.0
+trimesh==3.15.1
+sapien==1.5.0
+networkx==3.1
+matplotlib==3.7.1
+pygltf==0.1.0
+jsonpickle==3.0.0
+python-dotenv==1.0.0
