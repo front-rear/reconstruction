@@ -16,7 +16,7 @@ RODIN_BASE_URL = "https://hyperhuman.deemos.com/api/v2"
 BLENDER_PATH = "/SAMPart3D/blender-4.0.0-linux-x64/blender"
 SAM3D_PATH = "/SAMPart3D"
 SAM3D_CONFIG_BASE = "/SAMPart3D/configs/dexSim2Real/fridge_config_base.py"
-SAM3D_PYTHON_PATH = "/home/rvsa/miniconda3/envs/reart/bin/python"
+SAM3D_PYTHON_PATH = "/python3.10"
 SAM3D_RESULT_SCALE = "0.2"
 
 ICP_THRESHOLD = 0.02
