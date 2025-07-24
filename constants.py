@@ -13,9 +13,9 @@ RGB_CROP_PADDING = 30
 RODIN_BASE_URL = "https://hyperhuman.deemos.com/api/v2"
 
 # SAM3D
-BLENDER_PATH = "/home/rvsa/gary318/SAMPart3D/blender-4.0.0-linux-x64/blender"
-SAM3D_PATH = "/home/rvsa/gary318/SAMPart3D"
-SAM3D_CONFIG_BASE = "/home/rvsa/gary318/SAMPart3D/configs/dexSim2Real/fridge_config_base.py"
+BLENDER_PATH = "/SAMPart3D/blender-4.0.0-linux-x64/blender"
+SAM3D_PATH = "/SAMPart3D"
+SAM3D_CONFIG_BASE = "/SAMPart3D/configs/dexSim2Real/fridge_config_base.py"
 SAM3D_PYTHON_PATH = "/home/rvsa/miniconda3/envs/reart/bin/python"
 SAM3D_RESULT_SCALE = "0.2"
 
@@ -34,13 +34,13 @@ MESH_CASTING_THRESHOLD = 0.01
 CONVEX_DECOMP_RESULT_COUNT = 20
 
 # REART
-REART_PATH = "/home/rvsa/gary318/reart"
-REART_DATA_TEMPLATE = "/home/rvsa/gary318/reart/data/mbs-sapien/data/000212 copy.npz"
-REART_DATA_PATH = "/home/rvsa/gary318/reart/data/mbs-sapien/data/000212.npz"
+REART_PATH = "/reart"
+REART_DATA_TEMPLATE = "/reart/data/mbs-sapien/data/000212 copy.npz"
+REART_DATA_PATH = "/reart/data/mbs-sapien/data/000212.npz"
 REART_POINTCLOUD_SIZE = int(512 * 3)  # Multiple of 512
 REART_POINTCLOUD_COUNT = 4
 
-GT_FILE_PATH = "/home/rvsa/gary318/build_kinematic/gt.csv"
+GT_FILE_PATH = "/build_kinematic/gt.csv"
 
 # Visualization
 COLOR_MAP: Tuple[Tuple[float, float, float], ...] = (
