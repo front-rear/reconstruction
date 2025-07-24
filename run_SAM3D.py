@@ -68,5 +68,5 @@ def extract_SAM3D_results(SAM3D_output_folder: str) -> None:
 
 
 if __name__ == "__main__":
-    run_SAM3D_render("/build_kinematic/input_rgbd/123001/mesh", "/build_kinematic/input_rgbd/123001/render")
-    run_SAM3D_inference("/build_kinematic/input_rgbd/123001/render", "/build_kinematic/input_rgbd/123001/SAM3D")
+    run_SAM3D_render("/build_kinematic/123001/mesh", "/build_kinematic/123001/render")
+    run_SAM3D_inference("/build_kinematic/123001/render", "/build_kinematic/123001/SAM3D")
