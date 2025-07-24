@@ -1,4 +1,4 @@
-# 3D Object Modeling and Pose Estimation Project
+# 3D Reconstruction
 
 ## Introduction
 

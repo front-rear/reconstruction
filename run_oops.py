@@ -21,7 +21,7 @@ def run_oops(dataset_path: str) -> None:
     dataset_path = os.path.abspath(dataset_path)
     os.makedirs(os.path.join(dataset_path, "oops"), exist_ok=True)
 
-    SCRIPT_PATH = "/home/rvsa/gary318/FoundationPose/runs/my_run.py"
+    SCRIPT_PATH = "/FoundationPose/runs/my_run.py"
     os.chdir(os.path.dirname(SCRIPT_PATH))
 
     for filename in os.listdir(os.path.join(dataset_path, "mesh")):
