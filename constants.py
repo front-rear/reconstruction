@@ -5,7 +5,7 @@ from typing import Tuple, Literal
 PRESET: Literal["laptop", "cabinet", "lamp_round", "lamp_thin", "drawer", "compound", None] = "cabinet"
 
 # SAM
-SAM_PATH = "/home/rvsa/SAM"
+SAM_PATH = "/SAM"
 SAM_SCRIPT_PATH = "sam_script.py"
 
 # RODIN
