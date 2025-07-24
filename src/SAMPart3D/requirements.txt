@@ -1,0 +1,14 @@
+Pillow
+opencv-python
+transformers
+einops
+scikit-learn
+tensorboard
+tensorboardx
+yapf
+addict
+scipy
+timm
+open3d
+trimesh
+torch-scatter
