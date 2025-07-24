@@ -411,7 +411,7 @@ def extract_urdf(dataset_path: str, ablation: bool = False) -> Tuple[bool, bool,
 
 
 if __name__ == "__main__":
-    dataset_path = "/build_kinematic/input_rgbd/010602_fridge"
+    dataset_path = "/build_kinematic/010602_fridge"
 
     engine = sapien.Engine()
     renderer = sapien.SapienRenderer()
@@ -427,7 +427,7 @@ if __name__ == "__main__":
     loader = scene.create_urdf_loader()
     loader.fix_root_link = True
     loader.scale = 1.0
-    art = loader.load("/build_kinematic/input_rgbd/fig1_011801/REART/changed_texture/object.urdf")
+    art = loader.load("/build_kinematic/fig1_011801/REART/changed_texture/object.urdf")
 
     while not viewer.closed:
         scene.step()

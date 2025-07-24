@@ -102,4 +102,4 @@ def glb_to_obj(mesh_folder: str, output_folder: str) -> None:
         combined_mesh.export(os.path.join(output_subfolder, f"{os.path.splitext(file_name)[0]}.obj"))
 
 if __name__ == "__main__":
-    run_rodin("/build_kinematic/input_rgbd/123001/segmented_rgb", "/build_kinematic/input_rgbd/123001/mesh")
+    run_rodin("/build_kinematic/123001/segmented_rgb", "/build_kinematic/123001/mesh")
