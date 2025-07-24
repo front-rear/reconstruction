@@ -1,0 +1,154 @@
+Ground truth found for laptop_gray_011001: axis [0. 1. 0.], origin [1.05  0.25  0.032]
+Root part: 0
+{'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([0.06867504, 0.9927157 , 0.09899099], dtype=float32), 'moment': array([ 0.08567019, -0.01677815,  0.10882337], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([0.06867504, 0.9927157 , 0.09899099], dtype=float32), 'moment': array([ 0.08567019, -0.01677815,  0.10882337], dtype=float32)}
+        Origin: [ 1.12635318  0.02232741 -0.05520044]
+        Axis rotation error: 6.920°
+        Axis translation error: 0.112
+Ground truth found for laptop_gray_011002: axis [0. 1. 0.], origin [0.925 0.25  0.032]
+Root part: 0
+{'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([0.202248  , 0.9723017 , 0.11715388], dtype=float32), 'moment': array([ 0.06390317, -0.02864815,  0.12744232], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([0.202248  , 0.9723017 , 0.11715388], dtype=float32), 'moment': array([ 0.06390317, -0.02864815,  0.12744232], dtype=float32)}
+        Origin: [ 0.97537627  0.08522772 -0.04241916]
+        Axis rotation error: 13.517°
+        Axis translation error: 0.090
+Ground truth found for laptop_gray_011003: axis [0. 1. 0.], origin [1.05  0.25  0.096]
+Root part: 0
+{'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.02626245,  0.98995197,  0.13894427], dtype=float32), 'moment': array([ 0.02989454, -0.01301876,  0.09840672], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.02626245,  0.98995197,  0.13894427], dtype=float32), 'moment': array([ 0.02989454, -0.01301876,  0.09840672], dtype=float32)}
+        Origin: [ 1.06288565 -0.01109304  0.05097316]
+        Axis rotation error: 8.129°
+        Axis translation error: 0.004
+Ground truth found for laptop_gray_011004: axis [0. 1. 0.], origin [1.175 0.25  0.096]
+Root part: 0
+{'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([0.28128362, 0.8562945 , 0.43317366], dtype=float32), 'moment': array([ 0.07510207, -0.0525388 ,  0.05509038], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([0.28128362, 0.8562945 , 0.43317366], dtype=float32), 'moment': array([ 0.07510207, -0.0525388 ,  0.05509038], dtype=float32)}
+        Origin: [1.23460361 0.02894596 0.02994537]
+        Axis rotation error: 31.097°
+        Axis translation error: 0.086
+Ground truth found for laptop_gray_011005: axis [ 0.70710678 -0.70710678  0.        ], origin [1.175 0.    0.032]
+Root part: 0
+{'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.7536124 , -0.6546352 ,  0.05934045], dtype=float32), 'moment': array([-0.0710355 , -0.09136652, -0.105805  ], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.7536124 , -0.6546352 ,  0.05934045], dtype=float32), 'moment': array([-0.0710355 , -0.09136652, -0.105805  ], dtype=float32)}
+        Origin: [ 1.17634988  0.10626114 -0.07854275]
+        Axis rotation error: 5.265°
+        Axis translation error: 0.134
+Ground truth found for laptop_gold_011201: axis [0. 1. 0.], origin [0.925 0.25  0.032]
+Root part: 0
+{'1_0': {'parent': 1, 'child': 0, 'type': 'revolute', 'axis': array([-0.01532069,  0.99929756, -0.03420085], dtype=float32), 'moment': array([ 0.10386783,  0.00148497, -0.00314037], dtype=float32)}}
+Connection: {'parent': 1, 'child': 0, 'type': 'revolute', 'axis': array([-0.01532069,  0.99929756, -0.03420085], dtype=float32), 'moment': array([ 0.10386783,  0.00148497, -0.00314037], dtype=float32)}
+Ground truth found for laptop_gold_011202: axis [0. 1. 0.], origin [1.    0.25  0.032]
+Root part: 0
+{'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.3850108 ,  0.9196085 , -0.07801916], dtype=float32), 'moment': array([-0.03279506,  0.03102204,  0.20381764], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.3850108 ,  0.9196085 , -0.07801916], dtype=float32), 'moment': array([-0.03279506,  0.03102204,  0.20381764], dtype=float32)}
+        Origin: [ 1.15187937 -0.00787058  0.05951136]
+        Axis rotation error: 23.131°
+        Axis translation error: 0.057
+Ground truth found for laptop_gold_011203: axis [0. 1. 0.], origin [1.075 0.25  0.032]
+Root part: 0
+{'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.01729321,  0.99640703, -0.08290921], dtype=float32), 'moment': array([0.03764828, 0.00594512, 0.06359608], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.01729321,  0.99640703, -0.08290921], dtype=float32), 'moment': array([0.03764828, 0.00594512, 0.06359608], dtype=float32)}
+        Origin: [ 1.1194555   0.05956411 -0.01075868]
+        Axis rotation error: 4.858°
+        Axis translation error: 0.052
+Ground truth found for laptop_gold_011204: axis [0. 1. 0.], origin [1.15  0.25  0.032]
+Root part: 0
+{'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.06131032,  0.9958638 , -0.06705624], dtype=float32), 'moment': array([0.04610228, 0.00078529, 0.0538144 ], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.06131032,  0.9958638 , -0.06705624], dtype=float32), 'moment': array([0.04610228, 0.00078529, 0.0538144 ], dtype=float32)}
+        Origin: [ 1.1896861   0.05473856 -0.01558199]
+        Axis rotation error: 5.213°
+        Axis translation error: 0.003
+Ground truth found for laptop_gold_011205: axis [0. 1. 0.], origin [1.225 0.25  0.032]
+Root part: 0
+{'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.07323905,  0.9251617 , -0.37244046], dtype=float32), 'moment': array([ 0.30904707, -0.06695681, -0.10555127], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.07323905,  0.9251617 , -0.37244046], dtype=float32), 'moment': array([ 0.30904707, -0.06695681, -0.10555127], dtype=float32)}
+        Origin: [ 1.09136223 -0.03976206 -0.24267671]
+        Axis rotation error: 22.307°
+        Axis translation error: 0.184
+Ground truth found for laptop_gold_011206: axis [0. 1. 0.], origin [1.05  0.25  0.096]
+Root part: 0
+{'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.16708365,  0.9828336 ,  0.07823782], dtype=float32), 'moment': array([ 0.04716589, -0.00262777,  0.13373719], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.16708365,  0.9828336 ,  0.07823782], dtype=float32), 'moment': array([ 0.04716589, -0.00262777,  0.13373719], dtype=float32)}
+        Origin: [ 1.16750484 -0.03151151  0.04490377]
+        Axis rotation error: 10.632°
+        Axis translation error: 0.004
+
+
+Ground truth found for laptop_gray_011001: axis [0. 1. 0.], origin [1.05  0.25  0.032]
+Root part: 0
+         {'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.1123386,  0.9836687, -0.1406272], dtype=float32), 'moment': array([0.05929164, 0.01484954, 0.05650606], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.1123386,  0.9836687, -0.1406272], dtype=float32), 'moment': array([0.05929164, 0.01484954, 0.05650606], dtype=float32)}
+        Origin: [ 1.0810725   0.01818141 -0.03248444]
+        Axis rotation error: 10.369°
+        Axis translation error: 6.452
+Ground truth found for laptop_gray_011002: axis [0. 1. 0.], origin [0.925 0.25  0.032]
+Root part: 0
+         {'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.03669738,  0.98440254,  0.17206107], dtype=float32), 'moment': array([ 0.061202  , -0.01709001,  0.11082923], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.03669738,  0.98440254,  0.17206107], dtype=float32), 'moment': array([ 0.061202  , -0.01709001,  0.11082923], dtype=float32)}
+        Origin: [ 0.96551229  0.11220927 -0.03457891]
+        Axis rotation error: 10.133°
+        Axis translation error: 2.573
+Ground truth found for laptop_gray_011003: axis [0. 1. 0.], origin [1.05  0.25  0.096]
+Root part: 0
+         {'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([0.00506613, 0.9966666 , 0.08142523], dtype=float32), 'moment': array([ 0.0342323 , -0.00835496,  0.10013707], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([0.00506613, 0.9966666 , 0.08142523], dtype=float32), 'moment': array([ 0.0342323 , -0.00835496,  0.10013707], dtype=float32)}
+        Origin: [ 1.06387631 -0.01495901  0.04588136]
+        Axis rotation error: 4.680°
+        Axis translation error: 1.696
+Ground truth found for laptop_gray_011004: axis [0. 1. 0.], origin [1.175 0.25  0.096]
+Root part: 0
+         {'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.5032836,  0.7535924, -0.4228524], dtype=float32), 'moment': array([0.0915027 , 0.03562782, 0.17240214], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.5032836,  0.7535924, -0.4228524], dtype=float32), 'moment': array([0.0915027 , 0.03562782, 0.17240214], dtype=float32)}
+        Origin: [ 1.29741638 -0.09362065  0.05425296]
+        Axis rotation error: 41.097°
+        Axis translation error: 4.678
+Ground truth found for laptop_gray_011005: axis [ 0.70710678 -0.70710678  0.        ], origin [1.175 0.    0.032]
+Root part: 0
+         {'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.48567528, -0.8081126 ,  0.33327696], dtype=float32), 'moment': array([-0.07279509, -0.09711408, -0.12939489], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.48567528, -0.8081126 ,  0.33327696], dtype=float32), 'moment': array([-0.07279509, -0.09711408, -0.12939489], dtype=float32)}
+        Origin: [ 1.23205841  0.07728767 -0.07011237]
+        Axis rotation error: 23.816°
+        Axis translation error: 2.075
+Ground truth found for laptop_gold_011201: axis [0. 1. 0.], origin [0.925 0.25  0.032]
+Root part: 0
+         {'1_0': {'parent': 1, 'child': 0, 'type': 'revolute', 'axis': array([-0.03749124,  0.9920267 ,  0.12032308], dtype=float32), 'moment': array([0.15334795, 0.00490119, 0.00737264], dtype=float32)}}
+Connection: {'parent': 1, 'child': 0, 'type': 'revolute', 'axis': array([-0.03749124,  0.9920267 ,  0.12032308], dtype=float32), 'moment': array([0.15334795, 0.00490119, 0.00737264], dtype=float32)}
+         [Warning] Parent origin not found, using absolute origin
+        Origin: [ 0.91031357  0.10002932 -0.11774935]
+        Axis rotation error: 7.240°
+        Axis translation error: 5.857
+Ground truth found for laptop_gold_011202: axis [0. 1. 0.], origin [1.    0.25  0.032]
+Root part: 0
+         {'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([0.43674943, 0.582533  , 0.13021028], dtype=float32), 'moment': array([ 0.28276855,  0.15195012, -0.8298826 ], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([0.43674943, 0.582533  , 0.13021028], dtype=float32), 'moment': array([ 0.28276855,  0.15195012, -0.8298826 ], dtype=float32)}
+        Origin: [ 0.36641513  0.54868686 -0.09944046]
+        Axis rotation error: 38.038°
+        Axis translation error: 5.506
+Ground truth found for laptop_gold_011203: axis [0. 1. 0.], origin [1.075 0.25  0.032]
+Root part: 0
+         {'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.01729321,  0.99640703, -0.08290921], dtype=float32), 'moment': array([0.03764828, 0.00594512, 0.06359608], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.01729321,  0.99640703, -0.08290921], dtype=float32), 'moment': array([0.03764828, 0.00594512, 0.06359608], dtype=float32)}
+        Origin: [ 1.1194555   0.05956411 -0.01075868]
+        Axis rotation error: 4.858°
+        Axis translation error: 5.225
+Ground truth found for laptop_gold_011204: axis [0. 1. 0.], origin [1.15  0.25  0.032]
+Root part: 0
+         {'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.06131032,  0.9958638 , -0.06705624], dtype=float32), 'moment': array([0.04610228, 0.00078529, 0.0538144 ], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.06131032,  0.9958638 , -0.06705624], dtype=float32), 'moment': array([0.04610228, 0.00078529, 0.0538144 ], dtype=float32)}
+        Origin: [ 1.1896861   0.05473856 -0.01558199]
+        Axis rotation error: 5.213°
+        Axis translation error: 0.282
+Ground truth found for laptop_gold_011205: axis [0. 1. 0.], origin [1.225 0.25  0.032]
+Root part: 0
+         {'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.07323905,  0.9251617 , -0.37244046], dtype=float32), 'moment': array([ 0.30904707, -0.06695681, -0.10555127], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([ 0.07323905,  0.9251617 , -0.37244046], dtype=float32), 'moment': array([ 0.30904707, -0.06695681, -0.10555127], dtype=float32)}
+        Origin: [ 1.09136223 -0.03976206 -0.24267671]
+        Axis rotation error: 22.307°
+        Axis translation error: 18.413
+Ground truth found for laptop_gold_011206: axis [0. 1. 0.], origin [1.05  0.25  0.096]
+Root part: 0
+         {'0_1': {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.16708365,  0.9828336 ,  0.07823782], dtype=float32), 'moment': array([ 0.04716589, -0.00262777,  0.13373719], dtype=float32)}}
+Connection: {'parent': 0, 'child': 1, 'type': 'revolute', 'axis': array([-0.16708365,  0.9828336 ,  0.07823782], dtype=float32), 'moment': array([ 0.04716589, -0.00262777,  0.13373719], dtype=float32)}
+        Origin: [ 1.16750484 -0.03151151  0.04490377]
+        Axis rotation error: 10.632°
+        Axis translation error: 0.356

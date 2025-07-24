@@ -1,0 +1,16 @@
+
+laptop_gray_0109**      未建出桌面背景 → SAM3D粘连
+laptop_black_0109**     未建出桌面背景 → SAM3D粘连
+cabinet_011001~02       SAM3D粘连
+
+
+lamp_round_011101       反光
+
+lamp_round_011104       需要重跑OOPS
+
+
+lamp_thin_011105        OOPS尺度错误 + SAM3D中上部粘连
+
+lamp_thin_011107        SAM3D中上部粘连
+
+laptop_gold_011206      略有粘连
