@@ -1,0 +1,5 @@
+recon_err: 0.310
+retarget_err: 0.339
+tree edit distance: 5.000
+flow_epe: 0.168 | flow_acc5: 0.916 | flow_acc10: 0.984 | flow_angle: 0.117
+seg_ri: 0.837

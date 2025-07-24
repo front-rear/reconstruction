@@ -1,0 +1,15 @@
+torch 
+torchvision
+tqdm
+numpy<2
+matplotlib
+scipy
+networkx==2.5.1
+plotly
+apted
+trimesh
+chamferdist
+imageio
+Pillow
+kaleido
+ninja

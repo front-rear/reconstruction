@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "OOPS Inference",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/home/rvsa/gary318/FoundationPose/runs/my_run.py",
+            "cwd": "/home/rvsa/gary318/FoundationPose/runs",
+            "args": [
+                "--inference",
+                "--special_name",
+                "test_mid_final_zerodepth_maskrgb",
+                "--first_selection_num=25",
+                "--indix=1",
+                "--matching",
+                "--debug=3",
+                "--zero_depth",
+                "--mask_rgb",
+                "--first_selection",
+                "--mask_crop",
+                "--dataset_dir=/home/rvsa/gary318/build_kinematic/input_rgbd/fridge_pipeline_012001",
+                "--state_name=state_0"
+            ]
+        }
+    ]
+}

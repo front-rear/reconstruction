@@ -1,0 +1,5 @@
+# ninja log v5
+0	14430	1714363035894698180	/mnt/disk0/pzh/foundationpose/FoundationPose-main/bundlesdf/mycuda/build/temp.linux-x86_64-cpython-39/bindings.o	3e6382bebde2fb
+0	50831	1714363072286846251	/mnt/disk0/pzh/foundationpose/FoundationPose-main/bundlesdf/mycuda/build/temp.linux-x86_64-cpython-39/common.o	4c939c6d41f6ef46
+6	14785	1714363087494907083	/mnt/disk0/pzh/foundationpose/FoundationPose-main/bundlesdf/mycuda/build/temp.linux-x86_64-cpython-39/mnt/disk0/pzh/foundationpose/FoundationPose-main/bundlesdf/mycuda/torch_ngp_grid_encoder/bindings.o	f7fe7a8ef890e35b
+6	77683	1714363150371152511	/mnt/disk0/pzh/foundationpose/FoundationPose-main/bundlesdf/mycuda/build/temp.linux-x86_64-cpython-39/mnt/disk0/pzh/foundationpose/FoundationPose-main/bundlesdf/mycuda/torch_ngp_grid_encoder/gridencoder.o	c76ace1b6479c994

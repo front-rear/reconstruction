@@ -1,0 +1,9 @@
+ass_err: 0.002
+cd_err: 0.002
+screw_err: 0.000
+total_err: 0.002
+
+recon_err: 0.024
+flow_epe: 3.929
+per_scan_seg_ri: 0.960
+multi_scan_seg_ri: 0.959

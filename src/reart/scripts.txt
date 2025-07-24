@@ -1,0 +1,5 @@
+python run_sapien.py --sapien_idx=212 --save_root=exp --n_iter=2000 --cano_idx=2 --use_flow_loss --use_nproc --use_assign_loss
+
+python run_sapien.py --sapien_idx=212 --save_root=exp --n_iter=200 --cano_idx=2 --model=kinematic --use_flow_loss --use_nproc --use_assign_loss  --assign_iter=0 --assign_gap=1 --snapshot_gap=10 --base_result_path=exp/sapien_212/result.pkl
+
+python extract_results.py --sapien_idx=212 --save_root=exp --num_parts=4 --merge_it=0 --n_iter=200 --cano_idx=3 --model=kinematic --use_nproc --use_assign_loss --assign_iter=0 --assign_gap=1 --snapshot_gap=10 --base_result_path=exp/sapien_212/result.pkl --export_path=/home/rvsa/gary318/build_kinematic/input_rgbd/compound_011603/REART/kinematic_result.npz
