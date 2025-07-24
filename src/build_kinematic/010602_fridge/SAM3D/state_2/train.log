@@ -1,0 +1,454 @@
+[2025-01-07 17:55:53,462 INFO train.py line 133 3315549] => Loading config ...
+[2025-01-07 17:55:53,463 INFO train.py line 135 3315549] Save path: /home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/SAM3D/state_2
+[2025-01-07 17:55:53,765 INFO train.py line 136 3315549] Config:
+weight = None
+resume = False
+evaluate = True
+test_only = False
+seed = 56649537
+save_path = '/home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/SAM3D/state_2'
+num_worker = 1
+batch_size = 1
+batch_size_val = None
+batch_size_test = None
+epoch = 500
+eval_epoch = 500
+sync_bn = False
+enable_amp = True
+empty_cache = False
+find_unused_parameters = False
+mix_prob = 0
+param_dicts = None
+hooks = [
+    dict(type='CheckpointLoader'),
+    dict(type='IterationTimer', warmup_iter=2),
+    dict(type='InformationWriter'),
+    dict(type='CheckpointSaver', save_freq=None)
+]
+train = dict(type='DefaultTrainer')
+test = dict(type='SemSegTester', verbose=True)
+model = dict(
+    type='SAMPart3D',
+    backbone_dim=384,
+    output_dim=384,
+    pcd_feat_dim=9,
+    freeze_backbone=True,
+    max_grouping_scale=2,
+    use_hierarchy_losses=True,
+    backbone=dict(
+        type='PTv3-obj',
+        in_channels=9,
+        order=['z', 'z-trans', 'hilbert', 'hilbert-trans'],
+        stride=(),
+        enc_depths=(3, 3, 3, 6, 16),
+        enc_channels=(32, 64, 128, 256, 384),
+        enc_num_head=(2, 4, 8, 16, 24),
+        enc_patch_size=(1024, 1024, 1024, 1024, 1024),
+        mlp_ratio=4,
+        qkv_bias=True,
+        qk_scale=None,
+        attn_drop=0.0,
+        proj_drop=0.0,
+        drop_path=0.0,
+        shuffle_orders=False,
+        pre_norm=True,
+        enable_rpe=False,
+        enable_flash=True,
+        upcast_attention=False,
+        upcast_softmax=False,
+        cls_mode=False))
+optimizer = dict(type='AdamW', lr=0.0001, weight_decay=1e-08)
+scheduler = dict(
+    type='OneCycleLR',
+    max_lr=[0.0001],
+    pct_start=0.1,
+    anneal_strategy='cos',
+    div_factor=10.0,
+    final_div_factor=10.0)
+dataset_type = 'SAMPart3DDataset16Views'
+data_root = '/home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/render'
+mesh_root = '/home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/mesh'
+backbone_weight_path = '/home/rvsa/gary318/SAMPart3D/ckpt/ptv3-object.pth'
+val_scales_list = [0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
+mesh_voting = True
+data = dict(
+    train=dict(
+        type='SAMPart3DDataset16Views',
+        split='train',
+        data_root=
+        '/home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/render',
+        mesh_root=
+        '/home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/mesh',
+        sample_num=15000,
+        pixels_per_image=256,
+        batch_size=90,
+        extent_scale=10.0,
+        transform=[
+            dict(type='NormalizeCoord'),
+            dict(type='CenterShift', apply_z=True),
+            dict(
+                type='GridSample',
+                grid_size=0.01,
+                keys=('coord', 'color', 'normal', 'origin_coord',
+                      'face_index'),
+                hash_type='fnv',
+                mode='train',
+                return_grid_coord=True,
+                return_inverse=True),
+            dict(type='CenterShift', apply_z=False),
+            dict(type='NormalizeColor'),
+            dict(type='ToTensor'),
+            dict(
+                type='Collect',
+                keys=('coord', 'grid_coord', 'inverse', 'origin_coord',
+                      'face_index'),
+                feat_keys=('coord', 'normal', 'color'))
+        ],
+        loop=1))
+oid = 'state_2'
+label = 'None'
+num_worker_per_gpu = 1
+batch_size_per_gpu = 1
+batch_size_val_per_gpu = 1
+batch_size_test_per_gpu = 1
+
+[2025-01-07 17:55:53,765 INFO train.py line 137 3315549] => Building model ...
+[2025-01-07 17:55:54,380 INFO train.py line 427 3315549] Num params: 1634304
+[2025-01-07 17:55:54,459 INFO train.py line 139 3315549] => Building writer ...
+[2025-01-07 17:55:54,470 INFO train.py line 437 3315549] Tensorboard writer logging dir: /home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/SAM3D/state_2
+[2025-01-07 17:55:54,470 INFO train.py line 141 3315549] => Building train dataset & dataloader ...
+[2025-01-07 17:56:15,312 INFO dataset_render_16views.py line 145 3315549] Processing frame_0
+[2025-01-07 17:56:17,963 INFO dataset_render_16views.py line 145 3315549] Processing frame_1
+[2025-01-07 17:56:20,606 INFO dataset_render_16views.py line 145 3315549] Processing frame_2
+[2025-01-07 17:56:22,993 INFO dataset_render_16views.py line 145 3315549] Processing frame_3
+[2025-01-07 17:56:25,229 INFO dataset_render_16views.py line 145 3315549] Processing frame_4
+[2025-01-07 17:56:27,618 INFO dataset_render_16views.py line 145 3315549] Processing frame_5
+[2025-01-07 17:56:30,178 INFO dataset_render_16views.py line 145 3315549] Processing frame_6
+[2025-01-07 17:56:32,510 INFO dataset_render_16views.py line 145 3315549] Processing frame_7
+[2025-01-07 17:56:34,760 INFO dataset_render_16views.py line 145 3315549] Processing frame_8
+[2025-01-07 17:56:37,167 INFO dataset_render_16views.py line 145 3315549] Processing frame_9
+[2025-01-07 17:56:39,759 INFO dataset_render_16views.py line 145 3315549] Processing frame_10
+[2025-01-07 17:56:42,275 INFO dataset_render_16views.py line 145 3315549] Processing frame_11
+[2025-01-07 17:56:44,572 INFO dataset_render_16views.py line 145 3315549] Processing frame_12
+[2025-01-07 17:56:46,995 INFO dataset_render_16views.py line 145 3315549] Processing frame_13
+[2025-01-07 17:56:49,588 INFO dataset_render_16views.py line 145 3315549] Processing frame_14
+[2025-01-07 17:56:52,050 INFO dataset_render_16views.py line 145 3315549] Processing frame_15
+[2025-01-07 17:56:54,305 INFO dataset_render_16views.py line 69 3315549] Totally 16 x 1 samples in train set.
+[2025-01-07 17:56:54,305 INFO train.py line 145 3315549] => Building optimize, scheduler, scaler(amp) ...
+[2025-01-07 17:56:54,307 INFO optimizer.py line 64 3315549] Params Group 1 - lr: 0.0001; Params: ['instance_net.params', 'pos_net.params'].
+[2025-01-07 17:56:54,307 INFO train.py line 149 3315549] => Building hooks ...
+[2025-01-07 17:56:54,309 INFO train.py line 166 3315549] >>>>>>>>>>>>>>>> Start Training >>>>>>>>>>>>>>>>
+[2025-01-07 17:56:54,309 INFO train.py line 171 3315549] => Loading checkpoint & weight ...
+[2025-01-07 17:56:54,509 INFO train.py line 192 3315549] Missing keys: ['scale_statistics', 'instance_net.params', 'pos_net.params']
+[2025-01-07 17:56:55,044 INFO train.py line 211 3315549] iter: 0, total_loss: 0.4325193464756012, loss_1: 0.371826171875, loss_2: 0.36572265625, loss_3: 0.323974609375
+[2025-01-07 17:56:56,847 INFO train.py line 211 3315549] iter: 10, total_loss: 0.3642820119857788, loss_1: 0.369873046875, loss_2: 0.344970703125, loss_3: 0.2318115234375
+[2025-01-07 17:56:58,624 INFO train.py line 211 3315549] iter: 20, total_loss: 0.2762346565723419, loss_1: 0.3525390625, loss_2: 0.34228515625, loss_3: 0.1072998046875
+[2025-01-07 17:57:00,404 INFO train.py line 211 3315549] iter: 30, total_loss: 0.18158221244812012, loss_1: 0.3154296875, loss_2: 0.299560546875, loss_3: 0.03955078125
+[2025-01-07 17:57:02,185 INFO train.py line 211 3315549] iter: 40, total_loss: 0.14686782658100128, loss_1: 0.25927734375, loss_2: 0.234619140625, loss_3: 0.031707763671875
+[2025-01-07 17:57:03,951 INFO train.py line 211 3315549] iter: 50, total_loss: 0.11086990684270859, loss_1: 0.209716796875, loss_2: 0.1512451171875, loss_3: 0.01751708984375
+[2025-01-07 17:57:05,726 INFO train.py line 211 3315549] iter: 60, total_loss: 0.11120566725730896, loss_1: 0.1353759765625, loss_2: 0.12158203125, loss_3: 0.05230712890625
+[2025-01-07 17:57:07,511 INFO train.py line 211 3315549] iter: 70, total_loss: 0.09125425666570663, loss_1: 0.1876220703125, loss_2: 0.17041015625, loss_3: 0.007297515869140625
+[2025-01-07 17:57:09,290 INFO train.py line 211 3315549] iter: 80, total_loss: 0.0722905844449997, loss_1: 0.1390380859375, loss_2: 0.0853271484375, loss_3: 0.014434814453125
+[2025-01-07 17:57:11,083 INFO train.py line 211 3315549] iter: 90, total_loss: 0.06548316031694412, loss_1: 0.12420654296875, loss_2: 0.08074951171875, loss_3: 0.0125732421875
+[2025-01-07 17:57:12,858 INFO train.py line 211 3315549] iter: 100, total_loss: 0.06166282668709755, loss_1: 0.111083984375, loss_2: 0.08349609375, loss_3: 0.01134490966796875
+[2025-01-07 17:57:14,633 INFO train.py line 211 3315549] iter: 110, total_loss: 0.07373499870300293, loss_1: 0.11865234375, loss_2: 0.10919189453125, loss_3: 0.01247406005859375
+[2025-01-07 17:57:16,404 INFO train.py line 211 3315549] iter: 120, total_loss: 0.05883214250206947, loss_1: 0.07421875, loss_2: 0.06500244140625, loss_3: 0.0235595703125
+[2025-01-07 17:57:18,192 INFO train.py line 211 3315549] iter: 130, total_loss: 0.06641806662082672, loss_1: 0.132080078125, loss_2: 0.08184814453125, loss_3: 0.003452301025390625
+[2025-01-07 17:57:19,965 INFO train.py line 211 3315549] iter: 140, total_loss: 0.05332096293568611, loss_1: 0.08984375, loss_2: 0.07080078125, loss_3: 0.01534271240234375
+[2025-01-07 17:57:21,753 INFO train.py line 211 3315549] iter: 150, total_loss: 0.052781179547309875, loss_1: 0.07244873046875, loss_2: 0.05780029296875, loss_3: 0.0258941650390625
+[2025-01-07 17:57:23,551 INFO train.py line 211 3315549] iter: 160, total_loss: 0.05460897833108902, loss_1: 0.079833984375, loss_2: 0.07305908203125, loss_3: 0.0225982666015625
+[2025-01-07 17:57:25,320 INFO train.py line 211 3315549] iter: 170, total_loss: 0.051334213465452194, loss_1: 0.08343505859375, loss_2: 0.062103271484375, loss_3: 0.011932373046875
+[2025-01-07 17:57:27,103 INFO train.py line 211 3315549] iter: 180, total_loss: 0.055138882249593735, loss_1: 0.0966796875, loss_2: 0.08892822265625, loss_3: 0.00957489013671875
+[2025-01-07 17:57:28,872 INFO train.py line 211 3315549] iter: 190, total_loss: 0.04629943519830704, loss_1: 0.062286376953125, loss_2: 0.0458984375, loss_3: 0.025054931640625
+[2025-01-07 17:57:30,657 INFO train.py line 211 3315549] iter: 200, total_loss: 0.05140019953250885, loss_1: 0.09881591796875, loss_2: 0.0806884765625, loss_3: 0.008636474609375
+[2025-01-07 17:57:32,438 INFO train.py line 211 3315549] iter: 210, total_loss: 0.05282198637723923, loss_1: 0.05859375, loss_2: 0.055267333984375, loss_3: 0.032562255859375
+[2025-01-07 17:57:34,204 INFO train.py line 211 3315549] iter: 220, total_loss: 0.03680744767189026, loss_1: 0.06805419921875, loss_2: 0.052581787109375, loss_3: 0.00994873046875
+[2025-01-07 17:57:35,948 INFO train.py line 211 3315549] iter: 230, total_loss: 0.041417889297008514, loss_1: 0.09661865234375, loss_2: 0.057525634765625, loss_3: 0.00722503662109375
+[2025-01-07 17:57:37,730 INFO train.py line 211 3315549] iter: 240, total_loss: 0.034105852246284485, loss_1: 0.060882568359375, loss_2: 0.04718017578125, loss_3: 0.0113525390625
+[2025-01-07 17:57:39,500 INFO train.py line 211 3315549] iter: 250, total_loss: 0.03617716580629349, loss_1: 0.05621337890625, loss_2: 0.0545654296875, loss_3: 0.00650787353515625
+[2025-01-07 17:57:41,260 INFO train.py line 211 3315549] iter: 260, total_loss: 0.032774027436971664, loss_1: 0.055999755859375, loss_2: 0.036712646484375, loss_3: 0.0133209228515625
+[2025-01-07 17:57:43,060 INFO train.py line 211 3315549] iter: 270, total_loss: 0.036880478262901306, loss_1: 0.06964111328125, loss_2: 0.04473876953125, loss_3: 0.007061004638671875
+[2025-01-07 17:57:44,851 INFO train.py line 211 3315549] iter: 280, total_loss: 0.0405360609292984, loss_1: 0.06396484375, loss_2: 0.061187744140625, loss_3: 0.007442474365234375
+[2025-01-07 17:57:46,613 INFO train.py line 211 3315549] iter: 290, total_loss: 0.034849055111408234, loss_1: 0.05322265625, loss_2: 0.03692626953125, loss_3: 0.0161285400390625
+[2025-01-07 17:57:48,402 INFO train.py line 211 3315549] iter: 300, total_loss: 0.04226664453744888, loss_1: 0.05767822265625, loss_2: 0.051055908203125, loss_3: 0.01824951171875
+[2025-01-07 17:57:50,187 INFO train.py line 211 3315549] iter: 310, total_loss: 0.03969103470444679, loss_1: 0.06231689453125, loss_2: 0.05615234375, loss_3: 0.00820159912109375
+[2025-01-07 17:57:51,988 INFO train.py line 211 3315549] iter: 320, total_loss: 0.03903178498148918, loss_1: 0.06640625, loss_2: 0.062286376953125, loss_3: 0.00836944580078125
+[2025-01-07 17:57:53,755 INFO train.py line 211 3315549] iter: 330, total_loss: 0.03643953800201416, loss_1: 0.047760009765625, loss_2: 0.035003662109375, loss_3: 0.0213470458984375
+[2025-01-07 17:57:55,558 INFO train.py line 211 3315549] iter: 340, total_loss: 0.03621884435415268, loss_1: 0.046905517578125, loss_2: 0.042205810546875, loss_3: 0.0183563232421875
+[2025-01-07 17:57:57,329 INFO train.py line 211 3315549] iter: 350, total_loss: 0.03185023367404938, loss_1: 0.052734375, loss_2: 0.044586181640625, loss_3: 0.0075531005859375
+[2025-01-07 17:57:59,081 INFO train.py line 211 3315549] iter: 360, total_loss: 0.0502166748046875, loss_1: 0.1044921875, loss_2: 0.056549072265625, loss_3: 0.00787353515625
+[2025-01-07 17:58:00,864 INFO train.py line 211 3315549] iter: 370, total_loss: 0.035228777676820755, loss_1: 0.06280517578125, loss_2: 0.052703857421875, loss_3: 0.01291656494140625
+[2025-01-07 17:58:02,650 INFO train.py line 211 3315549] iter: 380, total_loss: 0.030201459303498268, loss_1: 0.043365478515625, loss_2: 0.0309295654296875, loss_3: 0.01422882080078125
+[2025-01-07 17:58:04,435 INFO train.py line 211 3315549] iter: 390, total_loss: 0.03021339140832424, loss_1: 0.052093505859375, loss_2: 0.0390625, loss_3: 0.007541656494140625
+[2025-01-07 17:58:06,223 INFO train.py line 211 3315549] iter: 400, total_loss: 0.03486696258187294, loss_1: 0.050201416015625, loss_2: 0.047576904296875, loss_3: 0.014068603515625
+[2025-01-07 17:58:08,008 INFO train.py line 211 3315549] iter: 410, total_loss: 0.06351476162672043, loss_1: 0.12158203125, loss_2: 0.04425048828125, loss_3: 0.025604248046875
+[2025-01-07 17:58:09,787 INFO train.py line 211 3315549] iter: 420, total_loss: 0.031165748834609985, loss_1: 0.05023193359375, loss_2: 0.03497314453125, loss_3: 0.00714874267578125
+[2025-01-07 17:58:11,600 INFO train.py line 211 3315549] iter: 430, total_loss: 0.029086578637361526, loss_1: 0.040802001953125, loss_2: 0.030303955078125, loss_3: 0.0081634521484375
+[2025-01-07 17:58:13,400 INFO train.py line 211 3315549] iter: 440, total_loss: 0.03812761977314949, loss_1: 0.08709716796875, loss_2: 0.05596923828125, loss_3: 0.002887725830078125
+[2025-01-07 17:58:15,186 INFO train.py line 211 3315549] iter: 450, total_loss: 0.035172007977962494, loss_1: 0.051483154296875, loss_2: 0.0477294921875, loss_3: 0.01094818115234375
+[2025-01-07 17:58:16,979 INFO train.py line 211 3315549] iter: 460, total_loss: 0.03217865899205208, loss_1: 0.048858642578125, loss_2: 0.038238525390625, loss_3: 0.0112762451171875
+[2025-01-07 17:58:18,770 INFO train.py line 211 3315549] iter: 470, total_loss: 0.03682706505060196, loss_1: 0.0672607421875, loss_2: 0.0374755859375, loss_3: 0.00701141357421875
+[2025-01-07 17:58:20,582 INFO train.py line 211 3315549] iter: 480, total_loss: 0.03054039366543293, loss_1: 0.051177978515625, loss_2: 0.046600341796875, loss_3: 0.005031585693359375
+[2025-01-07 17:58:22,352 INFO train.py line 211 3315549] iter: 490, total_loss: 0.05834539607167244, loss_1: 0.1365966796875, loss_2: 0.066162109375, loss_3: 0.01334381103515625
+[2025-01-07 17:58:23,965 INFO train.py line 248 3315549] => Loading checkpoint & weight ...
+[2025-01-07 17:58:23,965 INFO train.py line 257 3315549] No weight found at: None
+[2025-01-07 17:58:24,384 INFO train.py line 324 3315549] scale_0 has 29 groups, mesh_voting: True
+[2025-01-07 17:58:24,396 INFO train.py line 359 3315549] shape of mesh_group (38472,)
+[2025-01-07 17:58:24,671 INFO train.py line 367 3315549] Mesh has 38472 faces
+[2025-01-07 17:58:24,805 INFO train.py line 324 3315549] scale_0.2 has 27 groups, mesh_voting: True
+[2025-01-07 17:58:24,812 INFO train.py line 359 3315549] shape of mesh_group (38472,)
+[2025-01-07 17:58:25,097 INFO train.py line 367 3315549] Mesh has 38472 faces
+[2025-01-07 17:58:25,231 INFO train.py line 324 3315549] scale_0.4 has 23 groups, mesh_voting: True
+[2025-01-07 17:58:25,236 INFO train.py line 359 3315549] shape of mesh_group (38472,)
+[2025-01-07 17:58:25,514 INFO train.py line 367 3315549] Mesh has 38472 faces
+[2025-01-07 17:58:25,648 INFO train.py line 324 3315549] scale_0.6 has 21 groups, mesh_voting: True
+[2025-01-07 17:58:25,653 INFO train.py line 359 3315549] shape of mesh_group (38472,)
+[2025-01-07 17:58:25,931 INFO train.py line 367 3315549] Mesh has 38472 faces
+[2025-01-07 17:58:26,070 INFO train.py line 324 3315549] scale_0.8 has 20 groups, mesh_voting: True
+[2025-01-07 17:58:26,075 INFO train.py line 359 3315549] shape of mesh_group (38472,)
+[2025-01-07 17:58:26,356 INFO train.py line 367 3315549] Mesh has 38472 faces
+[2025-01-07 17:58:26,497 INFO train.py line 324 3315549] scale_1.0 has 20 groups, mesh_voting: True
+[2025-01-07 17:58:26,503 INFO train.py line 359 3315549] shape of mesh_group (38472,)
+[2025-01-07 17:58:26,789 INFO train.py line 367 3315549] Mesh has 38472 faces
+[2025-01-07 17:58:26,933 INFO train.py line 324 3315549] scale_1.2 has 21 groups, mesh_voting: True
+[2025-01-07 17:58:26,938 INFO train.py line 359 3315549] shape of mesh_group (38472,)
+[2025-01-07 17:58:27,216 INFO train.py line 367 3315549] Mesh has 38472 faces
+[2025-01-07 17:58:27,361 INFO train.py line 324 3315549] scale_1.4 has 16 groups, mesh_voting: True
+[2025-01-07 17:58:27,366 INFO train.py line 359 3315549] shape of mesh_group (38472,)
+[2025-01-07 17:58:27,641 INFO train.py line 367 3315549] Mesh has 38472 faces
+[2025-01-07 17:58:27,790 INFO train.py line 324 3315549] scale_1.6 has 15 groups, mesh_voting: True
+[2025-01-07 17:58:27,795 INFO train.py line 359 3315549] shape of mesh_group (38472,)
+[2025-01-07 17:58:28,074 INFO train.py line 367 3315549] Mesh has 38472 faces
+[2025-01-07 17:58:28,236 INFO train.py line 324 3315549] scale_1.8 has 5 groups, mesh_voting: True
+[2025-01-07 17:58:28,240 INFO train.py line 359 3315549] shape of mesh_group (38472,)
+[2025-01-07 17:58:28,519 INFO train.py line 367 3315549] Mesh has 38472 faces
+[2025-01-07 17:58:28,696 INFO train.py line 324 3315549] scale_2.0 has 2 groups, mesh_voting: True
+[2025-01-07 17:58:28,700 INFO train.py line 359 3315549] shape of mesh_group (38472,)
+[2025-01-07 17:58:28,980 INFO train.py line 367 3315549] Mesh has 38472 faces
+[2025-01-15 16:34:10,295 INFO train.py line 133 4018131] => Loading config ...
+[2025-01-15 16:34:10,296 INFO train.py line 135 4018131] Save path: /home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/SAM3D/state_2
+[2025-01-15 16:34:10,608 INFO train.py line 136 4018131] Config:
+weight = None
+resume = False
+evaluate = True
+test_only = False
+seed = 14150391
+save_path = '/home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/SAM3D/state_2'
+num_worker = 1
+batch_size = 1
+batch_size_val = None
+batch_size_test = None
+epoch = 500
+eval_epoch = 500
+sync_bn = False
+enable_amp = True
+empty_cache = False
+find_unused_parameters = False
+mix_prob = 0
+param_dicts = None
+hooks = [
+    dict(type='CheckpointLoader'),
+    dict(type='IterationTimer', warmup_iter=2),
+    dict(type='InformationWriter'),
+    dict(type='CheckpointSaver', save_freq=None)
+]
+train = dict(type='DefaultTrainer')
+test = dict(type='SemSegTester', verbose=True)
+model = dict(
+    type='SAMPart3D',
+    backbone_dim=384,
+    output_dim=384,
+    pcd_feat_dim=9,
+    freeze_backbone=True,
+    max_grouping_scale=2,
+    use_hierarchy_losses=True,
+    backbone=dict(
+        type='PTv3-obj',
+        in_channels=9,
+        order=['z', 'z-trans', 'hilbert', 'hilbert-trans'],
+        stride=(),
+        enc_depths=(3, 3, 3, 6, 16),
+        enc_channels=(32, 64, 128, 256, 384),
+        enc_num_head=(2, 4, 8, 16, 24),
+        enc_patch_size=(1024, 1024, 1024, 1024, 1024),
+        mlp_ratio=4,
+        qkv_bias=True,
+        qk_scale=None,
+        attn_drop=0.0,
+        proj_drop=0.0,
+        drop_path=0.0,
+        shuffle_orders=False,
+        pre_norm=True,
+        enable_rpe=False,
+        enable_flash=True,
+        upcast_attention=False,
+        upcast_softmax=False,
+        cls_mode=False))
+optimizer = dict(type='AdamW', lr=0.0001, weight_decay=1e-08)
+scheduler = dict(
+    type='OneCycleLR',
+    max_lr=[0.0001],
+    pct_start=0.1,
+    anneal_strategy='cos',
+    div_factor=10.0,
+    final_div_factor=10.0)
+dataset_type = 'SAMPart3DDataset16Views'
+data_root = '/home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/render'
+mesh_root = '/home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/mesh'
+backbone_weight_path = '/home/rvsa/gary318/SAMPart3D/ckpt/ptv3-object.pth'
+val_scales_list = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
+mesh_voting = True
+data = dict(
+    train=dict(
+        type='SAMPart3DDataset16Views',
+        split='train',
+        data_root=
+        '/home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/render',
+        mesh_root=
+        '/home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/mesh',
+        sample_num=15000,
+        pixels_per_image=256,
+        batch_size=90,
+        extent_scale=10.0,
+        transform=[
+            dict(type='NormalizeCoord'),
+            dict(type='CenterShift', apply_z=True),
+            dict(
+                type='GridSample',
+                grid_size=0.01,
+                keys=('coord', 'color', 'normal', 'origin_coord',
+                      'face_index'),
+                hash_type='fnv',
+                mode='train',
+                return_grid_coord=True,
+                return_inverse=True),
+            dict(type='CenterShift', apply_z=False),
+            dict(type='NormalizeColor'),
+            dict(type='ToTensor'),
+            dict(
+                type='Collect',
+                keys=('coord', 'grid_coord', 'inverse', 'origin_coord',
+                      'face_index'),
+                feat_keys=('coord', 'normal', 'color'))
+        ],
+        loop=1))
+oid = 'state_2'
+label = 'None'
+num_worker_per_gpu = 1
+batch_size_per_gpu = 1
+batch_size_val_per_gpu = 1
+batch_size_test_per_gpu = 1
+
+[2025-01-15 16:34:10,608 INFO train.py line 137 4018131] => Building model ...
+[2025-01-15 16:34:11,189 INFO train.py line 429 4018131] Num params: 1634304
+[2025-01-15 16:34:11,268 INFO train.py line 139 4018131] => Building writer ...
+[2025-01-15 16:34:11,341 INFO train.py line 439 4018131] Tensorboard writer logging dir: /home/rvsa/gary318/build_kinematic/input_rgbd/010602_fridge/SAM3D/state_2
+[2025-01-15 16:34:11,341 INFO train.py line 141 4018131] => Building train dataset & dataloader ...
+[2025-01-15 16:34:52,230 INFO dataset_render_16views.py line 145 4018131] Processing frame_0
+[2025-01-15 16:34:54,663 INFO dataset_render_16views.py line 145 4018131] Processing frame_1
+[2025-01-15 16:34:57,179 INFO dataset_render_16views.py line 145 4018131] Processing frame_2
+[2025-01-15 16:34:59,336 INFO dataset_render_16views.py line 145 4018131] Processing frame_3
+[2025-01-15 16:35:01,553 INFO dataset_render_16views.py line 145 4018131] Processing frame_4
+[2025-01-15 16:35:03,775 INFO dataset_render_16views.py line 145 4018131] Processing frame_5
+[2025-01-15 16:35:06,172 INFO dataset_render_16views.py line 145 4018131] Processing frame_6
+[2025-01-15 16:35:08,435 INFO dataset_render_16views.py line 145 4018131] Processing frame_7
+[2025-01-15 16:35:10,481 INFO dataset_render_16views.py line 145 4018131] Processing frame_8
+[2025-01-15 16:35:12,619 INFO dataset_render_16views.py line 145 4018131] Processing frame_9
+[2025-01-15 16:35:15,165 INFO dataset_render_16views.py line 145 4018131] Processing frame_10
+[2025-01-15 16:35:17,541 INFO dataset_render_16views.py line 145 4018131] Processing frame_11
+[2025-01-15 16:35:19,719 INFO dataset_render_16views.py line 145 4018131] Processing frame_12
+[2025-01-15 16:35:21,957 INFO dataset_render_16views.py line 145 4018131] Processing frame_13
+[2025-01-15 16:35:24,390 INFO dataset_render_16views.py line 145 4018131] Processing frame_14
+[2025-01-15 16:35:26,626 INFO dataset_render_16views.py line 145 4018131] Processing frame_15
+[2025-01-15 16:35:28,660 INFO dataset_render_16views.py line 69 4018131] Totally 16 x 1 samples in train set.
+[2025-01-15 16:35:28,660 INFO train.py line 145 4018131] => Building optimize, scheduler, scaler(amp) ...
+[2025-01-15 16:35:28,661 INFO optimizer.py line 64 4018131] Params Group 1 - lr: 0.0001; Params: ['instance_net.params', 'pos_net.params'].
+[2025-01-15 16:35:28,662 INFO train.py line 149 4018131] => Building hooks ...
+[2025-01-15 16:35:28,663 INFO train.py line 166 4018131] >>>>>>>>>>>>>>>> Start Training >>>>>>>>>>>>>>>>
+[2025-01-15 16:35:28,663 INFO train.py line 171 4018131] => Loading checkpoint & weight ...
+[2025-01-15 16:35:28,805 INFO train.py line 192 4018131] Missing keys: ['scale_statistics', 'instance_net.params', 'pos_net.params']
+[2025-01-15 16:35:29,324 INFO train.py line 211 4018131] iter: 0, total_loss: 0.41087642312049866, loss_1: 0.365478515625, loss_2: 0.35595703125, loss_3: 0.312744140625
+[2025-01-15 16:35:31,149 INFO train.py line 211 4018131] iter: 10, total_loss: 0.38202768564224243, loss_1: 0.367431640625, loss_2: 0.367431640625, loss_3: 0.283447265625
+[2025-01-15 16:35:32,936 INFO train.py line 211 4018131] iter: 20, total_loss: 0.25593847036361694, loss_1: 0.399658203125, loss_2: 0.378662109375, loss_3: 0.10626220703125
+[2025-01-15 16:35:34,737 INFO train.py line 211 4018131] iter: 30, total_loss: 0.21169988811016083, loss_1: 0.345703125, loss_2: 0.28955078125, loss_3: 0.07794189453125
+[2025-01-15 16:35:36,535 INFO train.py line 211 4018131] iter: 40, total_loss: 0.17595872282981873, loss_1: 0.28369140625, loss_2: 0.272216796875, loss_3: 0.043609619140625
+[2025-01-15 16:35:38,339 INFO train.py line 211 4018131] iter: 50, total_loss: 0.1252300888299942, loss_1: 0.234619140625, loss_2: 0.1844482421875, loss_3: 0.028350830078125
+[2025-01-15 16:35:40,141 INFO train.py line 211 4018131] iter: 60, total_loss: 0.15096035599708557, loss_1: 0.243408203125, loss_2: 0.1923828125, loss_3: 0.0482177734375
+[2025-01-15 16:35:41,963 INFO train.py line 211 4018131] iter: 70, total_loss: 0.11078324168920517, loss_1: 0.162841796875, loss_2: 0.1578369140625, loss_3: 0.047637939453125
+[2025-01-15 16:35:43,772 INFO train.py line 211 4018131] iter: 80, total_loss: 0.11727770417928696, loss_1: 0.21435546875, loss_2: 0.1654052734375, loss_3: 0.0287017822265625
+[2025-01-15 16:35:45,584 INFO train.py line 211 4018131] iter: 90, total_loss: 0.0858745351433754, loss_1: 0.1617431640625, loss_2: 0.0997314453125, loss_3: 0.0223388671875
+[2025-01-15 16:35:47,394 INFO train.py line 211 4018131] iter: 100, total_loss: 0.09050135314464569, loss_1: 0.129150390625, loss_2: 0.11151123046875, loss_3: 0.0318603515625
+[2025-01-15 16:35:49,198 INFO train.py line 211 4018131] iter: 110, total_loss: 0.10897283256053925, loss_1: 0.1851806640625, loss_2: 0.1634521484375, loss_3: 0.03863525390625
+[2025-01-15 16:35:50,976 INFO train.py line 211 4018131] iter: 120, total_loss: 0.0917239785194397, loss_1: 0.140625, loss_2: 0.09228515625, loss_3: 0.039581298828125
+[2025-01-15 16:35:52,751 INFO train.py line 211 4018131] iter: 130, total_loss: 0.09248458594083786, loss_1: 0.13525390625, loss_2: 0.11273193359375, loss_3: 0.0391845703125
+[2025-01-15 16:35:54,538 INFO train.py line 211 4018131] iter: 140, total_loss: 0.10624291002750397, loss_1: 0.1798095703125, loss_2: 0.11126708984375, loss_3: 0.0513916015625
+[2025-01-15 16:35:56,329 INFO train.py line 211 4018131] iter: 150, total_loss: 0.08815354108810425, loss_1: 0.1400146484375, loss_2: 0.128173828125, loss_3: 0.0273590087890625
+[2025-01-15 16:35:58,130 INFO train.py line 211 4018131] iter: 160, total_loss: 0.07012266665697098, loss_1: 0.09210205078125, loss_2: 0.06903076171875, loss_3: 0.037200927734375
+[2025-01-15 16:35:59,944 INFO train.py line 211 4018131] iter: 170, total_loss: 0.07405948638916016, loss_1: 0.10504150390625, loss_2: 0.10003662109375, loss_3: 0.032501220703125
+[2025-01-15 16:36:01,745 INFO train.py line 211 4018131] iter: 180, total_loss: 0.10968831926584244, loss_1: 0.08331298828125, loss_2: 0.06610107421875, loss_3: 0.09832763671875
+[2025-01-15 16:36:03,562 INFO train.py line 211 4018131] iter: 190, total_loss: 0.06268144398927689, loss_1: 0.1051025390625, loss_2: 0.08721923828125, loss_3: 0.017974853515625
+[2025-01-15 16:36:05,378 INFO train.py line 211 4018131] iter: 200, total_loss: 0.07905939221382141, loss_1: 0.1451416015625, loss_2: 0.10028076171875, loss_3: 0.01525115966796875
+[2025-01-15 16:36:07,221 INFO train.py line 211 4018131] iter: 210, total_loss: 0.061486758291721344, loss_1: 0.0830078125, loss_2: 0.07568359375, loss_3: 0.0277252197265625
+[2025-01-15 16:36:09,013 INFO train.py line 211 4018131] iter: 220, total_loss: 0.07522904127836227, loss_1: 0.10498046875, loss_2: 0.08868408203125, loss_3: 0.03936767578125
+[2025-01-15 16:36:10,818 INFO train.py line 211 4018131] iter: 230, total_loss: 0.08726852387189865, loss_1: 0.2059326171875, loss_2: 0.093994140625, loss_3: 0.0102386474609375
+[2025-01-15 16:36:12,632 INFO train.py line 211 4018131] iter: 240, total_loss: 0.07100736349821091, loss_1: 0.1171875, loss_2: 0.07733154296875, loss_3: 0.035736083984375
+[2025-01-15 16:36:14,443 INFO train.py line 211 4018131] iter: 250, total_loss: 0.06858950108289719, loss_1: 0.10333251953125, loss_2: 0.0758056640625, loss_3: 0.0364990234375
+[2025-01-15 16:36:16,257 INFO train.py line 211 4018131] iter: 260, total_loss: 0.0602293498814106, loss_1: 0.07806396484375, loss_2: 0.06097412109375, loss_3: 0.034820556640625
+[2025-01-15 16:36:18,061 INFO train.py line 211 4018131] iter: 270, total_loss: 0.07590468972921371, loss_1: 0.1265869140625, loss_2: 0.1192626953125, loss_3: 0.01018524169921875
+[2025-01-15 16:36:19,853 INFO train.py line 211 4018131] iter: 280, total_loss: 0.05422992259263992, loss_1: 0.08673095703125, loss_2: 0.06072998046875, loss_3: 0.0250244140625
+[2025-01-15 16:36:21,653 INFO train.py line 211 4018131] iter: 290, total_loss: 0.06264446675777435, loss_1: 0.0712890625, loss_2: 0.05908203125, loss_3: 0.041839599609375
+[2025-01-15 16:36:23,470 INFO train.py line 211 4018131] iter: 300, total_loss: 0.06932654976844788, loss_1: 0.1376953125, loss_2: 0.08648681640625, loss_3: 0.017303466796875
+[2025-01-15 16:36:25,275 INFO train.py line 211 4018131] iter: 310, total_loss: 0.06538441777229309, loss_1: 0.07904052734375, loss_2: 0.0682373046875, loss_3: 0.036376953125
+[2025-01-15 16:36:27,083 INFO train.py line 211 4018131] iter: 320, total_loss: 0.05284719169139862, loss_1: 0.080078125, loss_2: 0.07745361328125, loss_3: 0.0175323486328125
+[2025-01-15 16:36:28,917 INFO train.py line 211 4018131] iter: 330, total_loss: 0.06400202214717865, loss_1: 0.06915283203125, loss_2: 0.06829833984375, loss_3: 0.040924072265625
+[2025-01-15 16:36:30,731 INFO train.py line 211 4018131] iter: 340, total_loss: 0.06853394955396652, loss_1: 0.06561279296875, loss_2: 0.0643310546875, loss_3: 0.051788330078125
+[2025-01-15 16:36:32,533 INFO train.py line 211 4018131] iter: 350, total_loss: 0.06111980974674225, loss_1: 0.062103271484375, loss_2: 0.050537109375, loss_3: 0.044891357421875
+[2025-01-15 16:36:34,351 INFO train.py line 211 4018131] iter: 360, total_loss: 0.04830273985862732, loss_1: 0.078857421875, loss_2: 0.06182861328125, loss_3: 0.0182037353515625
+[2025-01-15 16:36:36,181 INFO train.py line 211 4018131] iter: 370, total_loss: 0.0766712874174118, loss_1: 0.170654296875, loss_2: 0.1046142578125, loss_3: 0.0072784423828125
+[2025-01-15 16:36:37,991 INFO train.py line 211 4018131] iter: 380, total_loss: 0.07181800901889801, loss_1: 0.1051025390625, loss_2: 0.10223388671875, loss_3: 0.0306243896484375
+[2025-01-15 16:36:39,801 INFO train.py line 211 4018131] iter: 390, total_loss: 0.05905190855264664, loss_1: 0.07476806640625, loss_2: 0.06536865234375, loss_3: 0.034881591796875
+[2025-01-15 16:36:41,603 INFO train.py line 211 4018131] iter: 400, total_loss: 0.054792940616607666, loss_1: 0.07757568359375, loss_2: 0.072265625, loss_3: 0.024993896484375
+[2025-01-15 16:36:43,429 INFO train.py line 211 4018131] iter: 410, total_loss: 0.08304031193256378, loss_1: 0.2279052734375, loss_2: 0.07806396484375, loss_3: 0.006626129150390625
+[2025-01-15 16:36:45,237 INFO train.py line 211 4018131] iter: 420, total_loss: 0.08813810348510742, loss_1: 0.1561279296875, loss_2: 0.0904541015625, loss_3: 0.03936767578125
+[2025-01-15 16:36:47,043 INFO train.py line 211 4018131] iter: 430, total_loss: 0.05584614723920822, loss_1: 0.08795166015625, loss_2: 0.051605224609375, loss_3: 0.0295867919921875
+[2025-01-15 16:36:48,855 INFO train.py line 211 4018131] iter: 440, total_loss: 0.05506046116352081, loss_1: 0.08184814453125, loss_2: 0.06512451171875, loss_3: 0.0272369384765625
+[2025-01-15 16:36:50,677 INFO train.py line 211 4018131] iter: 450, total_loss: 0.048663992434740067, loss_1: 0.083984375, loss_2: 0.0626220703125, loss_3: 0.0179290771484375
+[2025-01-15 16:36:52,497 INFO train.py line 211 4018131] iter: 460, total_loss: 0.0658668726682663, loss_1: 0.1025390625, loss_2: 0.07708740234375, loss_3: 0.03033447265625
+[2025-01-15 16:36:54,327 INFO train.py line 211 4018131] iter: 470, total_loss: 0.06406848132610321, loss_1: 0.10125732421875, loss_2: 0.10211181640625, loss_3: 0.0113372802734375
+[2025-01-15 16:36:56,156 INFO train.py line 211 4018131] iter: 480, total_loss: 0.07879478484392166, loss_1: 0.12841796875, loss_2: 0.09783935546875, loss_3: 0.036590576171875
+[2025-01-15 16:36:57,963 INFO train.py line 211 4018131] iter: 490, total_loss: 0.07804424315690994, loss_1: 0.155517578125, loss_2: 0.083251953125, loss_3: 0.02911376953125
+[2025-01-15 16:36:59,615 INFO train.py line 248 4018131] => Loading checkpoint & weight ...
+[2025-01-15 16:36:59,616 INFO train.py line 257 4018131] No weight found at: None
+[2025-01-15 16:37:00,020 INFO train.py line 326 4018131] scale_0.0 has 36 groups, mesh_voting: True
+[2025-01-15 16:37:00,030 INFO train.py line 361 4018131] shape of mesh_group (38472,)
+[2025-01-15 16:37:00,280 INFO train.py line 369 4018131] Mesh has 38472 faces
+[2025-01-15 16:37:00,403 INFO train.py line 326 4018131] scale_0.2 has 37 groups, mesh_voting: True
+[2025-01-15 16:37:00,408 INFO train.py line 361 4018131] shape of mesh_group (38472,)
+[2025-01-15 16:37:00,657 INFO train.py line 369 4018131] Mesh has 38472 faces
+[2025-01-15 16:37:00,778 INFO train.py line 326 4018131] scale_0.4 has 38 groups, mesh_voting: True
+[2025-01-15 16:37:00,784 INFO train.py line 361 4018131] shape of mesh_group (38472,)
+[2025-01-15 16:37:01,037 INFO train.py line 369 4018131] Mesh has 38472 faces
+[2025-01-15 16:37:01,160 INFO train.py line 326 4018131] scale_0.6 has 38 groups, mesh_voting: True
+[2025-01-15 16:37:01,165 INFO train.py line 361 4018131] shape of mesh_group (38472,)
+[2025-01-15 16:37:01,414 INFO train.py line 369 4018131] Mesh has 38472 faces
+[2025-01-15 16:37:01,539 INFO train.py line 326 4018131] scale_0.8 has 38 groups, mesh_voting: True
+[2025-01-15 16:37:01,545 INFO train.py line 361 4018131] shape of mesh_group (38472,)
+[2025-01-15 16:37:01,795 INFO train.py line 369 4018131] Mesh has 38472 faces
+[2025-01-15 16:37:01,920 INFO train.py line 326 4018131] scale_1.0 has 38 groups, mesh_voting: True
+[2025-01-15 16:37:01,925 INFO train.py line 361 4018131] shape of mesh_group (38472,)
+[2025-01-15 16:37:02,181 INFO train.py line 369 4018131] Mesh has 38472 faces
+[2025-01-15 16:37:02,309 INFO train.py line 326 4018131] scale_1.2 has 37 groups, mesh_voting: True
+[2025-01-15 16:37:02,315 INFO train.py line 361 4018131] shape of mesh_group (38472,)
+[2025-01-15 16:37:02,570 INFO train.py line 369 4018131] Mesh has 38472 faces
+[2025-01-15 16:37:02,702 INFO train.py line 326 4018131] scale_1.4 has 37 groups, mesh_voting: True
+[2025-01-15 16:37:02,707 INFO train.py line 361 4018131] shape of mesh_group (38472,)
+[2025-01-15 16:37:02,959 INFO train.py line 369 4018131] Mesh has 38472 faces
+[2025-01-15 16:37:03,093 INFO train.py line 326 4018131] scale_1.6 has 34 groups, mesh_voting: True
+[2025-01-15 16:37:03,099 INFO train.py line 361 4018131] shape of mesh_group (38472,)
+[2025-01-15 16:37:03,344 INFO train.py line 369 4018131] Mesh has 38472 faces
+[2025-01-15 16:37:03,495 INFO train.py line 326 4018131] scale_1.8 has 15 groups, mesh_voting: True
+[2025-01-15 16:37:03,500 INFO train.py line 361 4018131] shape of mesh_group (38472,)
+[2025-01-15 16:37:03,749 INFO train.py line 369 4018131] Mesh has 38472 faces
+[2025-01-15 16:37:03,912 INFO train.py line 326 4018131] scale_2.0 has 2 groups, mesh_voting: True
+[2025-01-15 16:37:03,917 INFO train.py line 361 4018131] shape of mesh_group (38472,)
+[2025-01-15 16:37:04,164 INFO train.py line 369 4018131] Mesh has 38472 faces
