@@ -193,7 +193,7 @@ def calculate_mask_error(dataset_path: str) -> Tuple[np.ndarray, np.ndarray]:
 
 
 if __name__ == "__main__":
-    dataset_path = "/build_kinematic/input_rgbd/123101_drawer"
+    dataset_path = "/build_kinematic/123101_drawer"
     run_oops(dataset_path)
     adjust_scale(dataset_path)
     refine_pose(dataset_path)
