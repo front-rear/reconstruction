@@ -12,8 +12,8 @@ from record_affordance import record_affordance
 
 if __name__ == '__main__':
 
-    # base_input_folder = "/home/rvsa/gary318/build_kinematic/input_rgbd"
-    dataset_folder = "/home/rvsa/gary318/build_kinematic/input_rgbd/fig1_011801"
+    # base_input_folder = "/build_kinematic/input_rgbd"
+    dataset_folder = "/build_kinematic/input_rgbd/fig1_011801"
 
     mesh_folder = os.path.join(dataset_folder, "mesh")
     render_folder = os.path.join(dataset_folder, "render")
