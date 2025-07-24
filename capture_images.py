@@ -10,8 +10,7 @@ import numpy as np
 import cv2
 import os
 
-dataset_folder = '/work/lamp_round_011103'
-#dataset_folder = '/work/laptop_gold_011201'
+dataset_folder = '/work/123101'
 
 # Create pipelines and configs
 pipeline_main = rs.pipeline()
