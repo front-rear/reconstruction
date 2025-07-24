@@ -65,7 +65,7 @@ class PoseEstimator:
 
 
 if __name__ == "__main__":
-    dataset_path = "/home/rvsa/SAM/data/122601"
+    dataset_path = "/SAM/data/122601"
     intrinsic_415 = np.array([
         [906.461181640625, 0, 635.8511962890625],
         [0, 905.659912109375, 350.6916809082031],
